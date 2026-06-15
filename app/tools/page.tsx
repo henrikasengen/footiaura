@@ -17,11 +17,11 @@ export default function ToolsPage() {
       href: "#",
     },
     {
-      name: "Expected Value Calculator",
-      status: "Coming Soon",
-      description:
-        "Calculate whether a betting opportunity offers value.",
-      href: "#",
+  name: "Expected Value Calculator",
+  status: "Live",
+  description:
+    "Calculate whether a betting opportunity offers value.",
+  href: "/tools/expected-value",
     },
     {
       name: "Kelly Calculator",
