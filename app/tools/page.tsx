@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ToolsPage() {
   const tools = [
     {
@@ -5,24 +7,28 @@ export default function ToolsPage() {
       status: "Live",
       description:
         "Convert betting odds into implied probability instantly.",
+      href: "/tools/implied-probability",
     },
     {
       name: "Odds Converter",
       status: "Coming Soon",
       description:
         "Convert between decimal, fractional and American odds.",
+      href: "#",
     },
     {
       name: "Expected Value Calculator",
       status: "Coming Soon",
       description:
         "Calculate whether a betting opportunity offers value.",
+      href: "#",
     },
     {
       name: "Kelly Calculator",
       status: "Coming Soon",
       description:
         "Determine optimal bankroll allocation based on edge.",
+      href: "#",
     },
   ];
 
@@ -44,9 +50,10 @@ export default function ToolsPage() {
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {tools.map((tool) => (
-            <div
+            <Link
+              href={tool.href}
               key={tool.name}
-              className="rounded-3xl border border-white/10 bg-white/[0.04] p-6"
+              className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition hover:border-lime-400/50 hover:bg-white/[0.06]"
             >
               <div className="mb-4 flex items-center justify-between">
                 <h2 className="text-xl font-bold">{tool.name}</h2>
@@ -63,7 +70,13 @@ export default function ToolsPage() {
               </div>
 
               <p className="text-white/60">{tool.description}</p>
-            </div>
+
+              <p className="mt-6 text-lime-400">
+                {tool.status === "Live"
+                  ? "Open Tool →"
+                  : "Coming Soon"}
+              </p>
+            </Link>
           ))}
         </div>
       </section>
