@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Home() {
@@ -29,7 +30,7 @@ export default function Home() {
 
       <nav className="sticky top-0 z-50 border-b border-white/10 bg-black/80 px-8 py-3 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <Image
               src="/images/TransparrentLogo.png"
               alt="Footiaura Logo"
@@ -41,22 +42,39 @@ export default function Home() {
             <span className="text-2xl font-bold tracking-widest">
               FOOTI<span className="text-lime-400">AURA</span>
             </span>
-          </div>
+          </Link>
 
           <div className="hidden gap-8 text-sm text-white/60 md:flex">
-            <span>Insights</span>
-            <span>Tools</span>
-            <span>Analytics</span>
-            <span>About</span>
+            <Link href="/insights" className="transition hover:text-lime-400">
+              Insights
+            </Link>
+
+            <Link href="/tools" className="transition hover:text-lime-400">
+              Tools
+            </Link>
+
+            <Link href="#analytics" className="transition hover:text-lime-400">
+              Analytics
+            </Link>
+
+            <Link href="#about" className="transition hover:text-lime-400">
+              About
+            </Link>
           </div>
 
-          <button className="rounded-full bg-lime-400 px-5 py-2 font-semibold text-black transition hover:bg-lime-300">
+          <Link
+            href="#about"
+            className="rounded-full bg-lime-400 px-5 py-2 font-semibold text-black transition hover:bg-lime-300"
+          >
             Join Waitlist
-          </button>
+          </Link>
         </div>
       </nav>
 
-      <section className="relative mx-auto grid max-w-7xl gap-16 px-8 py-24 md:grid-cols-2 md:items-center">
+      <section
+        id="analytics"
+        className="relative mx-auto grid max-w-7xl gap-16 px-8 py-24 md:grid-cols-2 md:items-center"
+      >
         <div>
           <p className="mb-4 text-sm font-semibold tracking-widest text-lime-400">
             FOOTBALL INTELLIGENCE
@@ -79,13 +97,19 @@ export default function Home() {
           </p>
 
           <div className="mt-8 flex gap-4">
-            <button className="rounded-full bg-lime-400 px-6 py-3 font-semibold text-black transition hover:bg-lime-300">
+            <Link
+              href="/insights"
+              className="rounded-full bg-lime-400 px-6 py-3 font-semibold text-black transition hover:bg-lime-300"
+            >
               Latest Insights
-            </button>
+            </Link>
 
-            <button className="rounded-full border border-white/20 px-6 py-3 transition hover:border-lime-400 hover:text-lime-400">
+            <Link
+              href="/tools"
+              className="rounded-full border border-white/20 px-6 py-3 transition hover:border-lime-400 hover:text-lime-400"
+            >
               Explore Tools
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -113,9 +137,10 @@ export default function Home() {
             onChange={(e) => setOdds(e.target.value)}
             className="w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-lg outline-none transition focus:border-lime-400"
           />
+
           <div className="mt-4 text-sm text-white/50">
-  Market Odds: {odds || "--"}
-</div>
+            Market Odds: {odds || "--"}
+          </div>
 
           <div className="mt-6 rounded-2xl border border-lime-400/20 bg-lime-400/5 p-5">
             <p className="text-sm text-white/50">Implied Probability</p>
@@ -179,14 +204,19 @@ export default function Home() {
                     : "mt-4 text-sm text-white/40"
                 }
               >
-                {tool === "Implied Probability Calculator" ? "Live Now" : "Coming Soon"}
+                {tool === "Implied Probability Calculator"
+                  ? "Live Now"
+                  : "Coming Soon"}
               </p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="relative mx-auto max-w-4xl px-8 py-24 text-center">
+      <section
+        id="about"
+        className="relative mx-auto max-w-4xl px-8 py-24 text-center"
+      >
         <h3 className="text-4xl font-bold">Stay Ahead of the Game</h3>
 
         <p className="mt-4 text-white/60">
